@@ -23,6 +23,11 @@ export function getStoryIds() {
 export function getStory(id) {
   return db.stories.findOne({_id: new ObjectId(id)});
 };
+export function getStories() {
+  return db.stories.find().then(stories => {
+    return stories.sort((a, b) => b.votes - a.votes);
+  });
+}
 
 // UPDATE
 export function voteStory(id) {

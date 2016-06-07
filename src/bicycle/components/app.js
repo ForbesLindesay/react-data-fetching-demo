@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {addStory} from '../data-store';
-import withData from './with-data';
+import {connect} from 'react-bicycle';
 import Story from './story';
+import Spinner from './spinner';
 
 class App extends Component {
   constructor() {
@@ -15,13 +15,14 @@ class App extends Component {
   }
   _onSubmit(e) {
     e.preventDefault();
-    addStory(this.state.body);
+    this.props.addStory(this.state.body);
   }
   render() {
+    if (!this.props.loaded) return <Spinner/>;
     return (
       <div>
-        {this.props.data.map(id => (
-          <Story key={id} id={id} onUpdate={this.props.onUpdate}/>
+        {this.props.stories.map(story => (
+          <Story key={story.id} story={story}/>
         ))}
         <form onSubmit={this._onSubmit}>
           <input onChange={this._onChangeBody} value={this.state.body} />
@@ -32,7 +33,11 @@ class App extends Component {
   }
 }
 
-export default withData(
-  () => '/api/stories',
-  App,
-);
+export default connect(
+  props => ({stories: {id: true, ...Story.fields}}),
+  (client, props) => ({
+    addStory(body) {
+      client.update('Story.create', {body});
+    },
+  }),
+)(App);

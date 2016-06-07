@@ -6,7 +6,6 @@ import withData from './with-data';
 class Story extends Component {
   constructor() {
     super();
-    this.state = {loading: true, story: null};
     this._onVote = this._onVote.bind(this);
   }
   _onVote() {

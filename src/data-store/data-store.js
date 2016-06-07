@@ -44,7 +44,7 @@ function updateSubscriptions(query) {
 export function addStory(body) {
   request('put', '/api/stories', {json: {body}}).getBody('utf8').then(JSON.parse).done(
     result => {
-      cache['/api/stories'] = cache['/stories'].concat([result._id]);
+      cache['/api/stories'] = cache['/api/stories'].concat([result._id]);
       cache['/api/stories/' + result._id] = result;
       updateSubscriptions('/api/stories');
       updateSubscriptions('/api/stories/' + result._id);
