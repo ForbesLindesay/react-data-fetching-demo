@@ -21,7 +21,7 @@ const index = readFileSync(__dirname + '/../index.html', 'utf8');
 ].forEach(implementation => {
   const response = prepare(
     index.replace(/\{\{client\}\}/, '/' + implementation + '.js'),
-    {'content-type': 'html', 'cache-control': '1 day'},
+    {'content-type': 'html'},
   );
   app.get('/' + implementation, (req, res, next) => {
     response.send(req, res, next);
