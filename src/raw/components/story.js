@@ -20,13 +20,13 @@ class Story extends Component {
       story: {
         ...this.state.story,
         votes: this.state.story.votes + 1,
-      }
+      },
     });
     // actual update
     request('post', '/api/stories/' + this.props.id + '/vote')
     .getBody('utf8').then(JSON.parse).done(
       result => {
-        this.setState({loading: false, story: result.story})
+        this.setState({loading: false, story: result.story});
         this.props.onUpdateOrder();
       }
     );

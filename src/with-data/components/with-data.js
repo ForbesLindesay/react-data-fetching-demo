@@ -32,7 +32,7 @@ function withData(getUrl, Component) {
         />
       );
     }
-  }
+  };
 }
 
 export default withData;

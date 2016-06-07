@@ -10,7 +10,7 @@ const ObjectId = db.ObjectId;
 export function addStory(storyBody) {
   return db.stories.insert({
     body: storyBody,
-    votes: 0
+    votes: 0,
   });
 };
 

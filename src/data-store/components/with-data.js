@@ -34,7 +34,7 @@ function withData(getQuery, Component) {
       if (this.state.loading) return <Spinner />;
       return <Component {...this.props} data={this.state.data} />;
     }
-  }
+  };
 }
 
 export default withData;

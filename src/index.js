@@ -15,7 +15,7 @@ const index = readFileSync(__dirname + '/../index.html', 'utf8');
   'raw',
   'with-data',
   'data-store',
-  'bicycle'
+  'bicycle',
 ].forEach(implementation => {
   const response = prepare(
     index.replace(/\{\{client\}\}/, '/' + implementation + '.js'),
@@ -31,7 +31,7 @@ const index = readFileSync(__dirname + '/../index.html', 'utf8');
         process.env.NODE_ENV === 'production'
         ? require('envify')
         : require('babelify')
-      )
+      ),
     },
   ));
 });
