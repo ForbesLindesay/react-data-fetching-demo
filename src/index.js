@@ -1,7 +1,6 @@
 import {readFileSync} from 'fs';
 import {resolve} from 'path';
 import Promise from 'promise';
-import babelify from 'babelify';
 import browserify from 'browserify-middleware';
 import express from 'express';
 import prepare from 'prepare-response';
