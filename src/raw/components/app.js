@@ -24,11 +24,13 @@ class App extends Component {
   }
   _onSubmit(e) {
     e.preventDefault();
+    if (!this.state.body) return;
     request('put', '/api/stories', {
       json: {body: this.state.body},
     }).getBody('utf8').done(
       () => this._onUpdateOrder()
     );
+    this.setState({body: ''});
   }
   render() {
     if (this.state.loading) return <Spinner />;

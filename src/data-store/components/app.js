@@ -15,7 +15,9 @@ class App extends Component {
   }
   _onSubmit(e) {
     e.preventDefault();
+    if (!this.state.body) return;
     addStory(this.state.body);
+    this.setState({body: ''});
   }
   render() {
     return (

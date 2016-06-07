@@ -15,7 +15,9 @@ class App extends Component {
   }
   _onSubmit(e) {
     e.preventDefault();
+    if (!this.state.body) return;
     this.props.addStory(this.state.body);
+    this.setState({body: ''});
   }
   render() {
     if (!this.props.loaded) return <Spinner/>;

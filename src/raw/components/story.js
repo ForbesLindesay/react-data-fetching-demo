@@ -34,16 +34,11 @@ class Story extends Component {
   render() {
     if (this.state.loading) return <Spinner />;
     return (
-      <article style={{marginBottom: 20}}>
-        <span style={{
-          background: 'black', color: 'white', borderRadius: 4,
-          height: 20, width: 40, display: 'inline-block',
-          textAlign: 'center',
-          padding: 4,
-        }}>
+      <article>
+        <span className="vote-count">
           {this.state.story.votes}
         </span>
-        {this.state.story.body}
+        <div className="story-body">{this.state.story.body}</div>
         <button type="button" onClick={this._onVote}>Vote</button>
       </article>
     );

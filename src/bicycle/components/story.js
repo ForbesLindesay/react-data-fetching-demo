@@ -5,16 +5,11 @@ import {connect} from 'react-bicycle';
 class Story extends Component {
   render() {
     return (
-      <article style={{marginBottom: 20}}>
-        <span style={{
-          background: 'black', color: 'white', borderRadius: 4,
-          height: 20, width: 40, display: 'inline-block',
-          textAlign: 'center',
-          padding: 4,
-        }}>
+      <article>
+        <span className="vote-count">
           {this.props.story.votes}
         </span>
-        {this.props.story.body}
+        <div className="story-body">{this.props.story.body}</div>
         <button type="button" onClick={this.props.onVote}>Vote</button>
       </article>
     );

@@ -4,6 +4,64 @@
     <meta charset="utf-8">
     <title>Data Fetching Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css"/>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      button {
+        background: #000863;
+        color: white;
+        border-radius: 5px;
+        box-shadow: inset rgba(0,0,0,0.6) 0 -2px 0;
+        border: none;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      form {
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+      }
+      form > input {
+        background: white;
+        border: 1px solid black;
+        flex-grow: 1;
+        display: inline-block;
+      }
+      form > button {
+        width: 90px;
+        display: inline-block;
+        margin-left: 20px;
+      }
+      article {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid black;
+        padding: 10px;
+      }
+      article > .vote-count {
+        background: #000863;
+        color: white;
+        border-radius: 4px;
+        height: 26px;
+        min-width: 60px;
+        display: inline-block;
+        text-align: center;
+        padding: 4;
+        margin-right: 20px;
+        font-size: 19px;
+      }
+      article > .story-body {
+        flex-grow: 1;
+      }
+      article > button {
+        width: 60px;
+        height: 26px;
+      }
+    </style>
   </head>
   <body>
     <div id="container">

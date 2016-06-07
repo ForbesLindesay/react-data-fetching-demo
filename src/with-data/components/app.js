@@ -15,11 +15,13 @@ class App extends Component {
   }
   _onSubmit(e) {
     e.preventDefault();
+    if (!this.state.body) return;
     request('put', '/api/stories', {
       json: {body: this.state.body},
     }).getBody('utf8').then(JSON.parse).done(
       () => this.props.onUpdate()
     );
+    this.setState({body: ''});
   }
   render() {
     return (
