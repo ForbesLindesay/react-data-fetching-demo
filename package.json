@@ -31,7 +31,7 @@
     "build": "babel src --out-dir lib",
     "lint": "eslint src",
     "test": "babel-node test/index.js && npm run lint",
-    "predeploy": "npm run build",
+    "predeploy": "npm install && npm run build && npm prune --prod",
     "deploy": "npm i heroku-release && heroku-release --app react-data-fetching-demo"
   },
   "repository": {
