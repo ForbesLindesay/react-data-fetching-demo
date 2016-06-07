@@ -11,6 +11,11 @@ let cacheById = {};
 
 // CREATE
 export function addStory(storyBody) {
+  if (typeof storyBody !== 'string') {
+    throw new TypeError(
+      'story body must be a string',
+    );
+  }
   return db.stories.insert({
     body: storyBody,
     votes: 0,
@@ -34,6 +39,11 @@ export function getStoryIds() {
   });
 };
 export function getStory(id) {
+  if (typeof id !== 'string') {
+    throw new TypeError(
+      'story id must be a string',
+    );
+  }
   if (id in cacheById) return cacheById[id];
   return cacheById[id] = db.stories.findOne({_id: new ObjectId(id)});
 };
@@ -43,6 +53,11 @@ export function getStories() {
 
 // UPDATE
 export function voteStory(id) {
+  if (typeof id !== 'string') {
+    throw new TypeError(
+      'story id must be a string',
+    );
+  }
   return db.stories.update(
     {_id: new ObjectId(id)},
     {$inc: {votes: 1}},
