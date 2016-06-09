@@ -12,6 +12,8 @@ The three different methods demonstrated are:
 3. data-store - an implementation using a centralised data store
 4. bicycle - an implementation using the bicycle data fetching library
 
+You can view the live demo at https://react-data-fetching-demo.forbeslindesay.co.uk/
+
 ## License
 
 MIT
