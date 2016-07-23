@@ -5,9 +5,8 @@ import browserify from 'browserify-middleware';
 import express from 'express';
 import prepare from 'prepare-response';
 import {json} from 'body-parser';
-import MemoryStore from 'bicycle/lib/sessions/memory';
-import {createMiddleware as bicycleServer} from 'bicycle/lib/server';
-import schema from './bicycle-schema';
+import MemoryStore from 'bicycle/sessions/memory';
+import {createBicycleMiddleware, loadSchemaFromFiles} from 'bicycle/server';
 import * as api from './api';
 
 const app = express();
@@ -63,8 +62,9 @@ app.post('/api/stories/:id/vote', (req, res, next) => {
   ).done(r => res.json(r), next);
 });
 
+const schema = loadSchemaFromFiles(__dirname + '/bicycle-schema');
 const sessionStore = new MemoryStore();
-app.use('/bicycle', bicycleServer(schema, sessionStore, getContext));
+app.use('/bicycle', createBicycleMiddleware(schema, sessionStore, getContext));
 
 function getContext(req) {
   // use this function to add "context" such as the currently logged in user

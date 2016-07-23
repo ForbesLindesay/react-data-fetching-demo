@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-bicycle';
 import Story from './story';
-import Spinner from './spinner';
 
 class App extends Component {
   constructor() {
@@ -20,7 +19,6 @@ class App extends Component {
     this.setState({body: ''});
   }
   render() {
-    if (!this.props.loaded) return <Spinner/>;
     return (
       <div>
         {this.props.stories.map(story => (

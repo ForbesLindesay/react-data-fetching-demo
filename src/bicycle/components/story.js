@@ -17,7 +17,7 @@ class Story extends Component {
 }
 
 const StoryContainer = connect(
-  props => ({}),
+  undefined,
   (client, props) => ({
     onVote() {
       client.update('Story.vote', {id: props.story.id});

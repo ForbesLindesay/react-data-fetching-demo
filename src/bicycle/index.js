@@ -9,7 +9,7 @@ const client = new Bicycle();
 
 client.definieOptimisticUpdaters({
   Story: {
-    vote({id}, cache) {
+    vote({args: {id}}, cache) {
       if (!cache['Story:' + id]) return {};
       return {['Story:' + id]: {'votes': cache['Story:' + id].votes + 1}};
     },
