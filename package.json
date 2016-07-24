@@ -15,7 +15,8 @@
     "react-bicycle": "^2.0.0",
     "react-dom": "^15.1.0",
     "then-mongo": "^2.3.2",
-    "then-request": "^2.2.0"
+    "then-request": "^2.2.0",
+    "uglifyify": "^3.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.4.0",

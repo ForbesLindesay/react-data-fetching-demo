@@ -30,7 +30,10 @@ const index = readFileSync(__dirname + '/../index.html', 'utf8');
     {
       transform: (
         process.env.NODE_ENV === 'production'
-        ? [require('envify'), {global: true}]
+        ? [
+          [require('envify'), {global: true}],
+          [require('uglifyify'), {global: true}],
+        ]
         : require('babelify')
       ),
     },
