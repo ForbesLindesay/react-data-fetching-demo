@@ -1,5 +1,7 @@
 # react-data-fetching-demo
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ForbesLindesay/react-data-fetching-demo.svg)](https://greenkeeper.io/)
+
 A demo of different ways of doing data fetching in react
 
 [![Build Status](https://img.shields.io/travis/ForbesLindesay/react-data-fetching-demo/master.svg)](https://travis-ci.org/ForbesLindesay/react-data-fetching-demo)
